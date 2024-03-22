@@ -1,0 +1,18 @@
+body {
+  background-color: #1a1a1a; /* Dark background for the eerie atmosphere */
+  color: #c9c9c9; /* Light text color for contrast */
+  font-family: 'Courier New', Courier, monospace; /* Typewriter-style font */
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.05) 0,
+    rgba(255, 255, 255, 0.05) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+  background-size: 100% 4px;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

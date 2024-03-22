@@ -1,0 +1,271 @@
+/* Base styles for the theme */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: transparent;
+  z-index: 999;
+  filter: url(#aberration);
+  mask-image: radial-gradient(farthest-corner at center, transparent 50%, black 100%);
+}
+
+
+/* Table styles */
+.table-centered {
+  width: 100%;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid #4a4a4a;
+  border-collapse: collapse; /* Collapses the border */
+}
+
+table, th, td {
+  text-align: center;
+  vertical-align: middle;
+  padding: 16px; /* Increase the padding value as needed */
+}
+
+.table-centered th,
+.table-centered td {
+  text-align: center;
+  border: 1px solid #4a4a4a; /* Adds a subtle border to table cells */
+  padding: 8px; /* Adds padding inside table cells */
+  background-color: #2a2a2a; /* Slightly lighter background for table cells */
+}
+
+/* Title styles */
+.title-centered {
+  text-align: center;
+  font-size: 24px; /* Increases the font size for titles */
+  margin-top: 20px; /* Adds space above titles */
+  color: #e6e6e6; /* Lighter text color for titles */
+}
+
+/* Popup styles */
+.controls-popup {
+  background: #333333; /* Darker background for the popup */
+  color: #e6e6e6; /* Lighter text color for better readability */
+  padding: 20px;
+  margin: 20px 0; /* Ensures some space around the controls */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Adds a subtle shadow for depth */
+  border: 1px solid #555555; /* Adds a border to the popup */
+}
+
+.controls-popup button {
+  background-color: #4a4a4a; /* Button background color */
+  color: #ffffff; /* Button text color */
+  padding: 10px 20px; /* Button padding */
+  border: none; /* Removes the default border */
+  cursor: pointer; /* Changes cursor to pointer on hover */
+  margin-top: 10px; /* Space above the button */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.controls-popup button:hover {
+  background-color: #626262; /* Changes background color on hover */
+}
+
+.vhs-overlay {
+  background: 
+    linear-gradient(
+      rgba(18, 16, 16, 0.3),  /* Reduced opacity for transparency */
+      rgba(18, 16, 16, 0.5) 5px,  /* Line thickness */
+      transparent 2px,  /* Start of spacing */
+      transparent 8px  /* End of spacing, total space = 5px */
+    ),
+    linear-gradient(
+      90deg,
+      rgba(18, 16, 16, 0.1),
+      rgba(18, 16, 16, 0.1) 2px,
+      transparent 300px,
+      transparent 80px
+    );
+  background-size: 100% 8px, 8px 100%; /* Adjust to total line + space */
+  z-index: 9999;
+  mix-blend-mode: overlay;
+  animation: vhs-flicker 20s infinite, vhs-scan 100s infinite linear;
+  pointer-events: none;
+  position: relative;
+}
+
+@keyframes vhs-flicker {
+  0% { opacity: 1; }
+  5% { opacity: 0.9; }
+  10% { opacity: 1; }
+  15% { opacity: 0.7; }
+  20% { opacity: 1; }
+  25% { opacity: 0.8; }
+  30% { opacity: 1; }
+  35% { opacity: 0.6; }
+  40% { opacity: 1; }
+  45% { opacity: 0.8; }
+  50% { opacity: 1; }
+  55% { opacity: 0.9; }
+  60% { opacity: 0.75; }
+  65% { opacity: 1; }
+  70% { opacity: 0.85; }
+  75% { opacity: 1; }
+  80% { opacity: 0.6; }
+  85% { opacity: 1; }
+  90% { opacity: 0.9; }
+  95% { opacity: 0.95; }
+  100% { opacity: 1; }
+}
+
+@keyframes vhs-scan {
+  0% { background-position: 0 0; }
+  10% { background-position: 0 -5%; }
+  20% { background-position: 0 -10%; }
+  30% { background-position: 0 -15%; }
+  40% { background-position: 0 -25%; }
+  50% { background-position: 0 -30%; }
+  60% { background-position: 0 -40%; }
+  70% { background-position: 0 -50%; }
+  80% { background-position: 0 -65%; }
+  90% { background-position: 0 -80%; }
+  100% { background-position: 0 -100%; }
+}
+
+.vhs-flicker {
+  /* Extended duration for a slower flicker effect */
+  animation: vhs-flicker 10s infinite;
+}
+
+vhs-scan {
+  /* Slower scan for a more gradual movement */
+  animation: vhs-scan 180s infinite linear;
+}
+
+
+.vhs-overlay::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit;  /* Use the same background as the parent */
+  filter: blur(1px) contrast(110%);  /* Slight blur and contrast for distortion */
+  z-index: -2;  /* Ensure it's behind the lines */
+}
+
+.vhs-overlay::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at center, transparent 1100%, rgba(0, 0, 0, 0.1) 100%);
+  pointer-events: none; /* Ensures the overlay doesn't interfere with user interaction */
+  
+}
+
+
+.process-table {
+  width: 100%;
+  border-collapse: collapse; /* Collapses borders between table cells */
+  background-color: #f9f9f9; /* Light background for the table */
+}
+
+.process-table tr {
+  border-bottom: 1px solid #e0e0e0; /* Adds a subtle line between rows */
+}
+
+.process-table td {
+  padding: 12px 8px; /* Adds more space around cell content */
+  text-align: center; /* Centers content horizontally */
+  vertical-align: middle; /* Centers content vertically */
+}
+
+.process-table tr:hover {
+  background-color: #e0e0e0; /* Changes row background on hover for better interactivity */
+}
+
+
+
+@keyframes turning {
+  0% { content: '\\'; }
+  25% { content: '|'; }
+  50% { content: '/'; }
+  75% { content: '-'; }
+  100% { content: '\\'; }
+}
+
+.turning-animation::after {
+  display: inline-block;
+  animation: turning 1s steps(4, end) infinite;
+  content: '\\'; /* Initial content for the animation */
+  margin-left: 5px; /* Optional: adds some space between the text and the animation */
+}
+
+
+@keyframes blink-blocked {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.blocked-animation::after {
+  content: '\2016'; /* Unicode double vertical line */
+  color: red; /* Or your preferred color */
+  font-weight: bold;
+  padding-left: 5px;
+  animation: blink-blocked 1.5s infinite;
+}
+
+
+
+.finished-animation::after {
+  content: '\2713'; /* Unicode checkmark */
+  color: green; /* Or your preferred color */
+  font-weight: bold;
+  padding-left: 5px;
+}
+
+@keyframes pulse-new {
+  0% { opacity: 0.7; }
+  50% { opacity: 1; }
+  100% { opacity: 0.7; }
+}
+
+.new-animation {
+  animation: pulse-new 2s infinite;
+}
+
+
+@keyframes breathe-ready {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.ready-animation {
+  display: inline-block;
+  animation: breathe-ready 3s infinite;
+}
+
+
+@keyframes pulse-error {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; } /* Adjust the minimum opacity to ensure text remains visible */
+}
+
+.error-animation {
+  color: red; /* Sets the text color to red */
+  font-weight: bold; /* Makes the text bold */
+  animation: pulse-error 3s infinite; /* Smooth, slow pulsing */
+}
+
+
+
+@keyframes text-color-transition {
+  0%, 100% { color: #000; } /* Assuming default text color is black */
+  50% { color: #007bff; } /* Transition to a subtle blue; adjust the color as needed */
+}
+
+.text-transition-animation {
+  animation: text-color-transition 3s ease-in-out infinite;
+}
